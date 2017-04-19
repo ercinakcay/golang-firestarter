@@ -1,6 +1,4 @@
-# golang-web
-
-Experimental GO language learning repository.
+# basic-web
 
 Book store web application with some data parsing, html handling and redirection flow.
 
@@ -14,7 +12,5 @@ Operations used from Go libraries;
 
 - HTML generation with safe way [html/template](https://golang.org/pkg/html/template/)
 
-
-// Self TODOs' : Improvements of this project will be completed;
-
-- MongoDB database connection and basic CRUD operations.
+### Self TODOs' : Improvements of this project will be completed;
+- [ ] MongoDB database connection and basic CRUD operations.
