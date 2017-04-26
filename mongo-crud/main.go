@@ -2,13 +2,11 @@ package main
 
 import (
 	"gopkg.in/mgo.v2"
-	"net"
-	"crypto/tls"
 	"fmt"
 )
 
 const (
-	host = "ds153730.mlab.com:53730/comolocco"
+	host = "ds153730.mlab.com:53730"
 	databaseName = "comolocco"
 	username = "ercinakcay"
 	password = "123456"
@@ -33,18 +31,16 @@ func main() {
 		Username: username,
 		Password: password,
 		Database: databaseName,
-		DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
-			return tls.Dial("tcp", addr.String(), &tls.Config{})
-		},
 	})
 	if err != nil {
 		panic(err)
 	}
 	defer session.Close()
 
-	coll := session.DB(databaseName).C("Player")
-	fmt.Println(coll)
+	fmt.Printf("Connected to %v\n", session.LiveServers())
 
+
+	coll := session.DB(databaseName).C("Player")
 	if err := coll.Insert(player); err != nil {
 		panic(err)
 	}
